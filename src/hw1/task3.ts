@@ -16,12 +16,14 @@ type Circle = {
 }
 
 function getFigureInfo(figureObj: Triangle | Rectangle | Circle): string | void {
-    if (figureObj.type == 'triangle') {
-        return ` Triangle with base ${figureObj.base} and height ${figureObj.height} has an area of ${0.5*figureObj.base*figureObj.height}`
-    } else if (figureObj.type == 'rectangle') {
-        return ` Rectangle with width ${figureObj.width} and height ${figureObj.height} has an area of ${figureObj.width*figureObj.height}`
-    }else if (figureObj.type == 'circle') {
-        return ` Circle with radius ${figureObj.radius} has an area of ${(Math.PI*figureObj.radius**2).toFixed(2)}`
-    }
-    
+    if (figureObj.type === 'triangle') {
+        const figure = figureObj as Triangle
+        return ` Triangle with base ${figure.base} and height ${figure.height} has an area of ${0.5 * figure.base * figure.height}`
+    } else if (figureObj.type === 'rectangle') {
+        const figure = figureObj as Rectangle
+        return ` Rectangle with width ${figure.width} and height ${figure.height} has an area of ${figure.width*figure.height}`
+    }else if (figureObj.type === 'circle') {
+        const figure = figureObj as Circle
+        return ` Circle with radius ${figure.radius} has an area of ${(Math.PI*figure.radius**2).toFixed(2)}`
+    }   
 }

@@ -1,9 +1,9 @@
 function calcArrProduct(arr) {
-    return new Promise(function (resolve) {
+    return new Promise(function (resolve, reject) {
         let res = 1
         for (item of arr) {
             if (!(typeof item === 'number')) {
-                resolve("Error! Incorrect array!")
+                reject("Error! Incorrect array!")
             }
             res *= item
         }
@@ -13,4 +13,4 @@ function calcArrProduct(arr) {
 
 calcArrProduct([3,4,5]).then(result => console.log(result));
 
-calcArrProduct ( [5,"user2", 7, 12]).then(result => console.log(result));
+calcArrProduct ( [5,"user2", 7, 12]).then(result => console.log(result)).catch(error => console.log(error));
